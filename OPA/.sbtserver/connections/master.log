@@ -1,0 +1,13 @@
+New log file opened at Wed Mar 23 23:33:47 EDT 2016 by 12167@Chens-MacBook-Pro.local
+Taking next connection to: 55836
+New client attempting to connect on port: 55837-55836
+  Address = /192.168.1.9:55836
+This client on port 55837 has uuid 03ddfb96-49b8-40d9-950f-9b5dd4664647 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-03ddfb96-49b8-40d9-950f-9b5dd4664647
+Taking next connection to: 55836
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 12167@Chens-MacBook-Pro.local logs at Wed Mar 23 23:36:48 EDT 2016, goodbye.

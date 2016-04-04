@@ -1,0 +1,195 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")" rel="stylesheet" media="screen">
+
+        <!-- jQuery 1.12.2.min.js -->
+        <script src="@routes.Assets.versioned("javascripts/jquery-1.12.2.min.js")" type="text/javascript"></script>
+
+        <!-- Customized JavaScript -->
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+
+        <!-- Customized CSS -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Customer Service</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2>Information Box</h2></div>
+                    <div  class="panel-body">
+                        <h4 id="info-box">
+                            @content
+                        </h4>
+                    </div>
+                </div>
+            </div><!--Information Box  -->
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h3 class="lead">Services</h3>
+                    <div class="list-group">
+                        <button id="btn-list" type="button" class="list-group-item">List</button>
+                        <button id="btn-get" type="button" class="list-group-item">Get</button>
+                        <button id="btn-form" type="button" class="list-group-item">Create &amp; Update</button>
+                        <button id="btn-delete" type="button" class="list-group-item">Delete</button>
+                    </div>
+                </div><!--/.sidebar -->
+
+                <div class="col-md-9">
+
+                    <div class="panel panel-primary" id="div-list">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><h4>Customers</h4></div>
+                        <table id="customers" class="table " >
+                            <tr >
+                                <th rowspan="2" class="text-center">name</th>
+                                <th rowspan="2" class="text-center">email</th>
+                                <th rowspan="2" class="text-center">telephone</th>
+                                <th colspan="4" class="text-center">address</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">street</th>
+                                <th class="text-center">city</th>
+                                <th class="text-center">state</th>
+                                <th class="text-center">zip</th>
+                            </tr>
+                        </table>
+                    </div><!--/#div-list-->
+
+                    <div id="div-get" class="panel panel-info" >
+                        <div class="panel-heading">
+                            <h4>Customer</h4>
+                            <div class="input-group col-sm-6">
+                                <input id="get-mail" type="text" class="form-control " placeholder="example@@example.com">
+                                <div class="input-group-btn">
+                                    <button id="btn-retrieve" class="btn btn-info">Retrieve</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <!--glyphicon
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            -->
+                            <p>Name : <span id="Jname"></span></p>
+                            <p>Email : <span id="Jemail"></span></p>
+                            <p>Telephone : <span id="Jtelephone"></span></p>
+                            <p>Address : <span id="Jaddress_street"></span>, <span id="Jaddress_city"></span>, <span id="Jaddress_state"></span>, <span id="Jaddress_zip"></span></p>
+                        </div>
+                    </div><!--/#div.get-->
+
+                    <div class="panel panel-success" id="div-form">
+                        <div class="panel-heading"><h4>Create &amp; Update Customer</h4></div>
+                        <div class="panel-body">
+
+                            <form class="form-inline">
+                                <span class="label label-default">Basic Information</span><br><br>
+
+                                <label for="form-name" class="col-sm-2 form-control-label">Name</label>
+                                <input id="form-name" type="text" class="form-control" placeholder="Chen"><br><br>
+
+                                <label for="form-email" class="col-sm-2 form-control-label">Email</label>
+                                <input id="form-email" type="text" class="form-control" placeholder="example@@example.com"  ><br><br>
+
+                                <label for="form-telephone" class="col-sm-2 form-control-label">Telephone</label>
+                                <input id="form-telephone" type="text" class="form-control" placeholder="xxx-xxx-xxxx"><br><br>
+
+                                <span class="label label-default"> Address</span><br><br>
+
+                                <label for="form-street" class="col-sm-2 form-control-label">Street</label>
+                                <input id="form-street" type="text" class="form-control" placeholder="Old Lincoln St"><br><br>
+                                <label for="form-city" class="col-sm-2 form-control-label">City</label>
+                                <input id="form-city" type="text" class="form-control" placeholder="Worcester"><br><br>
+                                <label for="form-state" class="col-sm-2 form-control-label">State</label>
+                                <input id="form-state" type="text" class="form-control" placeholder="MA"><br><br>
+                                <label for="form-zip" class="col-sm-2 form-control-label">Zip</label>
+                                <input id="form-zip" type="text" class="form-control" placeholder="01605"><br><br>
+
+                            </form>
+
+                            <div class="btn-group btn-group-justified text-right" role="group" aria-label="...">
+                                <div class="btn-group" role="group">
+                                    <button id="btn-create" type="button" class="btn btn-info">Create</button>
+                                </div>
+                                <div id="btn-update" class="btn-group" role="group">
+                                    <button type="button" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!--/#div-form-->
+
+                    <div class="panel panel-danger" id="div-delete">
+                        <div class="panel-heading"><h4>Delete Customer</h4></div>
+                        <div class="panel-body">
+                            <div class="input-group col-sm-6">
+                                <input id="delete-mail" type="text" class="form-control " placeholder="example@@example.com">
+                                <div class="input-group-btn">
+                                    <button id="btn-dele" class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/#div-delete-->
+
+                </div><!--/.col-md-9-->
+
+            </div><!--/.row-->
+        </div><!--/.container-->
+
+
+        <div class="container">
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p> &copy; 2016 , Chen </p>
+                    </div>
+                </div>
+            </footer>
+        </div><!-- /.containner -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="@routes.Assets.versioned("javascripts/jquery.js")"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+    </body>
+</html>
