@@ -4,5 +4,5 @@
 
 
 1. $ activator run
-2. browser address: localhost:9000
+2. browse address: localhost:9000
  
