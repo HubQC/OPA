@@ -2,7 +2,7 @@
 
 ## One Page Application for customer service
 
-
-1. $ activator run
-2. browse address: localhost:9000
+1. cd OPA/OPA
+2. $ sudo ./activator run
+3. browse address: localhost:9000
  
